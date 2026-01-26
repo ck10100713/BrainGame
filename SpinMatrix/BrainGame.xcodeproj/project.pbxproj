@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01BDEDAC6E0D9EDF5C917603 /* SphereBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF5080C3A3131CFE39DBB1 /* SphereBoardView.swift */; };
+		04DA23AA8B87FFA686F6395F /* SpinMatrixGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E7BABEA915DBDAA83978A /* SpinMatrixGameView.swift */; };
+		0E4F94D709AFE9CBD6FF0B53 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DB7E2E70E2B5683620911 /* MainMenuView.swift */; };
+		12A3A45AB70E17A5D1BE68AC /* HexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68BFA395ECB2B72B848F06F /* HexViewModel.swift */; };
+		2C8835B4029B585609A9FE66 /* SharedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B670412A987051E3C4A80E /* SharedComponents.swift */; };
+		36917CBDEA4D683B4DE6713A /* SphereViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0E6C7F9874173CD9ADDA9 /* SphereViewModel.swift */; };
+		3753BEC198520B4730C2B182 /* BrainGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11993E5F71051C5BDE5711F /* BrainGameApp.swift */; };
+		3E070E830F587F515C2DD4D5 /* HexGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A5CC408645D3EB66692B55 /* HexGameView.swift */; };
+		5558F538A4F049378903A8C7 /* SphereLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FFA060B3EACF05C6D844A /* SphereLogic.swift */; };
+		562CFD220B524BF54B260EE7 /* SpinMatrixLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D33B87B2B1A5BC16D8ECE /* SpinMatrixLogic.swift */; };
+		5E1890CFD426813048FEC9AC /* SpinMatrixBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95521623B31F13903333CFD3 /* SpinMatrixBoardView.swift */; };
+		69D717CC48E6A486AAC7259B /* HexLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5380CEB40DE832CD756AD6 /* HexLogic.swift */; };
+		6D31FDDEC9D5C405F87652EC /* SpinMatrixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24CC45056F0852E1BFA952A /* SpinMatrixViewModel.swift */; };
+		7249D0CDAA81DA64821A0E87 /* SphereGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAFB16079E237B05225D0B5 /* SphereGameView.swift */; };
+		73637BBA01AE05C808355FC4 /* HexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4610855C0D60AF6294B6EA2 /* HexModels.swift */; };
+		9360D25E089CB8BEDB926FBE /* SphereModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651E5F26CAE0045958F61EE /* SphereModels.swift */; };
+		97F7E46761FCBE39B1982BDA /* SpinMatrixInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D199062A4F1B7F765FA7A596 /* SpinMatrixInfoPanel.swift */; };
+		B3A49699A8BBFF06D18CC393 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84CEEEF568C8EE414875EBD /* Assets.xcassets */; };
+		BDA9A4016DF5438383399732 /* HexBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C89E4143B7179C097644D4 /* HexBoardView.swift */; };
+		C1934D8A947B9ED56B92B5BD /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614C71CB47764FBF2F6D738 /* NavigationState.swift */; };
+		CE0D278BD99C065BFA8A4943 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6EDF597A8A4E2F65705961 /* Color+Hex.swift */; };
+		E7E3BBCF14CA8EF0272B1393 /* SpinMatrixModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21F8CF6C8B1F6C58D7618 /* SpinMatrixModels.swift */; };
+		F31FCCB166298CB9B8088F47 /* HexGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2854D59A514B6309E0A2BD /* HexGeometry.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		20FF5080C3A3131CFE39DBB1 /* SphereBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereBoardView.swift; sourceTree = "<group>"; };
+		2CAFB16079E237B05225D0B5 /* SphereGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereGameView.swift; sourceTree = "<group>"; };
+		3B7E7BABEA915DBDAA83978A /* SpinMatrixGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixGameView.swift; sourceTree = "<group>"; };
+		4651E5F26CAE0045958F61EE /* SphereModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereModels.swift; sourceTree = "<group>"; };
+		52E0D0DA32C09AD4897450D4 /* BrainGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ED21F8CF6C8B1F6C58D7618 /* SpinMatrixModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixModels.swift; sourceTree = "<group>"; };
+		7BC0E6C7F9874173CD9ADDA9 /* SphereViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereViewModel.swift; sourceTree = "<group>"; };
+		846DB7E2E70E2B5683620911 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		95521623B31F13903333CFD3 /* SpinMatrixBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixBoardView.swift; sourceTree = "<group>"; };
+		981FFA060B3EACF05C6D844A /* SphereLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereLogic.swift; sourceTree = "<group>"; };
+		99B670412A987051E3C4A80E /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
+		A11993E5F71051C5BDE5711F /* BrainGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameApp.swift; sourceTree = "<group>"; };
+		A24CC45056F0852E1BFA952A /* SpinMatrixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixViewModel.swift; sourceTree = "<group>"; };
+		AF2854D59A514B6309E0A2BD /* HexGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexGeometry.swift; sourceTree = "<group>"; };
+		C68BFA395ECB2B72B848F06F /* HexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexViewModel.swift; sourceTree = "<group>"; };
+		D199062A4F1B7F765FA7A596 /* SpinMatrixInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixInfoPanel.swift; sourceTree = "<group>"; };
+		D84CEEEF568C8EE414875EBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E614C71CB47764FBF2F6D738 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
+		EB5380CEB40DE832CD756AD6 /* HexLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexLogic.swift; sourceTree = "<group>"; };
+		EF6EDF597A8A4E2F65705961 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		F1C89E4143B7179C097644D4 /* HexBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexBoardView.swift; sourceTree = "<group>"; };
+		F4610855C0D60AF6294B6EA2 /* HexModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexModels.swift; sourceTree = "<group>"; };
+		F8A5CC408645D3EB66692B55 /* HexGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexGameView.swift; sourceTree = "<group>"; };
+		F90D33B87B2B1A5BC16D8ECE /* SpinMatrixLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixLogic.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		077E5B310EE4133C1BD319DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F90D33B87B2B1A5BC16D8ECE /* SpinMatrixLogic.swift */,
+				5ED21F8CF6C8B1F6C58D7618 /* SpinMatrixModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0C91FCAAE8C2565690C4BBED /* SpinMatrix */ = {
+			isa = PBXGroup;
+			children = (
+				D84CEEEF568C8EE414875EBD /* Assets.xcassets */,
+				A11993E5F71051C5BDE5711F /* BrainGameApp.swift */,
+				FFFD34EDA75B4FBF39BF291A /* Core */,
+				371B06D4A60A5E0D213805AA /* Features */,
+				B4CE2CEC18F5774608799C2C /* Shared */,
+			);
+			path = SpinMatrix;
+			sourceTree = "<group>";
+		};
+		216A2BD626F6DD657D2FD479 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				981FFA060B3EACF05C6D844A /* SphereLogic.swift */,
+				4651E5F26CAE0045958F61EE /* SphereModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		256B5B3BE6C616406ECD5E06 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF2854D59A514B6309E0A2BD /* HexGeometry.swift */,
+				EB5380CEB40DE832CD756AD6 /* HexLogic.swift */,
+				F4610855C0D60AF6294B6EA2 /* HexModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		371B06D4A60A5E0D213805AA /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				9EB7B8B5011596AE877A65A2 /* HexLogic */,
+				6BD8BB3010BE97F856C53728 /* MainMenu */,
+				41DC3A4D69EEAF5F54E2A8F0 /* SphereShift */,
+				B8696B443113BF5C92DAFE19 /* SpinMatrix */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		41DC3A4D69EEAF5F54E2A8F0 /* SphereShift */ = {
+			isa = PBXGroup;
+			children = (
+				216A2BD626F6DD657D2FD479 /* Models */,
+				D64ABBDC6B529F79E8ACF163 /* ViewModels */,
+				DF3CA20ABA376A51BAE4F390 /* Views */,
+			);
+			path = SphereShift;
+			sourceTree = "<group>";
+		};
+		4B9896D5340EA775432C64E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95521623B31F13903333CFD3 /* SpinMatrixBoardView.swift */,
+				3B7E7BABEA915DBDAA83978A /* SpinMatrixGameView.swift */,
+				D199062A4F1B7F765FA7A596 /* SpinMatrixInfoPanel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6B4B8EE1BE5546764DC5EA56 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1C89E4143B7179C097644D4 /* HexBoardView.swift */,
+				F8A5CC408645D3EB66692B55 /* HexGameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6BD8BB3010BE97F856C53728 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				846DB7E2E70E2B5683620911 /* MainMenuView.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		8A87BCBA38E65354F2C0CBB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52E0D0DA32C09AD4897450D4 /* BrainGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8EAC1CA87231B26082807CC1 = {
+			isa = PBXGroup;
+			children = (
+				0C91FCAAE8C2565690C4BBED /* SpinMatrix */,
+				8A87BCBA38E65354F2C0CBB5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94F0C59DC739BB5F6860A409 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E614C71CB47764FBF2F6D738 /* NavigationState.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		9EB7B8B5011596AE877A65A2 /* HexLogic */ = {
+			isa = PBXGroup;
+			children = (
+				256B5B3BE6C616406ECD5E06 /* Models */,
+				C6EDE97AB736BAA021337C0B /* ViewModels */,
+				6B4B8EE1BE5546764DC5EA56 /* Views */,
+			);
+			path = HexLogic;
+			sourceTree = "<group>";
+		};
+		A30BA0DB6BAC2BFD539371F5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF6EDF597A8A4E2F65705961 /* Color+Hex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B4CE2CEC18F5774608799C2C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FE4E9AA5E65925F201B20AC3 /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B8696B443113BF5C92DAFE19 /* SpinMatrix */ = {
+			isa = PBXGroup;
+			children = (
+				077E5B310EE4133C1BD319DC /* Models */,
+				E02D166F343E9BD679F5D2EA /* ViewModels */,
+				4B9896D5340EA775432C64E3 /* Views */,
+			);
+			path = SpinMatrix;
+			sourceTree = "<group>";
+		};
+		C6EDE97AB736BAA021337C0B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C68BFA395ECB2B72B848F06F /* HexViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D64ABBDC6B529F79E8ACF163 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7BC0E6C7F9874173CD9ADDA9 /* SphereViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DF3CA20ABA376A51BAE4F390 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20FF5080C3A3131CFE39DBB1 /* SphereBoardView.swift */,
+				2CAFB16079E237B05225D0B5 /* SphereGameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E02D166F343E9BD679F5D2EA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A24CC45056F0852E1BFA952A /* SpinMatrixViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FE4E9AA5E65925F201B20AC3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				99B670412A987051E3C4A80E /* SharedComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FFFD34EDA75B4FBF39BF291A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A30BA0DB6BAC2BFD539371F5 /* Extensions */,
+				94F0C59DC739BB5F6860A409 /* Navigation */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE626556A16E4360B26CAD07 /* BrainGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9512489EF0632DF59C656D5F /* Build configuration list for PBXNativeTarget "BrainGame" */;
+			buildPhases = (
+				5A900ABF1D39ED25861586B5 /* Sources */,
+				8D83BA60AB3966352B09F7C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BrainGame;
+			packageProductDependencies = (
+			);
+			productName = BrainGame;
+			productReference = 52E0D0DA32C09AD4897450D4 /* BrainGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67A50624B7445292B4B8DA14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = BF5A2F8F420E945063ED533B /* Build configuration list for PBXProject "BrainGame" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8EAC1CA87231B26082807CC1;
+			minimizedProjectReferenceProxies = 1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE626556A16E4360B26CAD07 /* BrainGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D83BA60AB3966352B09F7C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3A49699A8BBFF06D18CC393 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A900ABF1D39ED25861586B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3753BEC198520B4730C2B182 /* BrainGameApp.swift in Sources */,
+				CE0D278BD99C065BFA8A4943 /* Color+Hex.swift in Sources */,
+				BDA9A4016DF5438383399732 /* HexBoardView.swift in Sources */,
+				3E070E830F587F515C2DD4D5 /* HexGameView.swift in Sources */,
+				F31FCCB166298CB9B8088F47 /* HexGeometry.swift in Sources */,
+				69D717CC48E6A486AAC7259B /* HexLogic.swift in Sources */,
+				73637BBA01AE05C808355FC4 /* HexModels.swift in Sources */,
+				12A3A45AB70E17A5D1BE68AC /* HexViewModel.swift in Sources */,
+				0E4F94D709AFE9CBD6FF0B53 /* MainMenuView.swift in Sources */,
+				C1934D8A947B9ED56B92B5BD /* NavigationState.swift in Sources */,
+				2C8835B4029B585609A9FE66 /* SharedComponents.swift in Sources */,
+				01BDEDAC6E0D9EDF5C917603 /* SphereBoardView.swift in Sources */,
+				7249D0CDAA81DA64821A0E87 /* SphereGameView.swift in Sources */,
+				5558F538A4F049378903A8C7 /* SphereLogic.swift in Sources */,
+				9360D25E089CB8BEDB926FBE /* SphereModels.swift in Sources */,
+				36917CBDEA4D683B4DE6713A /* SphereViewModel.swift in Sources */,
+				5E1890CFD426813048FEC9AC /* SpinMatrixBoardView.swift in Sources */,
+				04DA23AA8B87FFA686F6395F /* SpinMatrixGameView.swift in Sources */,
+				97F7E46761FCBE39B1982BDA /* SpinMatrixInfoPanel.swift in Sources */,
+				562CFD220B524BF54B260EE7 /* SpinMatrixLogic.swift in Sources */,
+				E7E3BBCF14CA8EF0272B1393 /* SpinMatrixModels.swift in Sources */,
+				6D31FDDEC9D5C405F87652EC /* SpinMatrixViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		49C1716C9F34D79B2BD744AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9717E7DBBF1EB5F3A03134CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = K76353N9CW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BrainGame;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braingame.app;
+				SDKROOT = iphoneos;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC1CEC7FB79A55997A731665 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		ED1AE7A3D92B8DC4BF1CA0D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = K76353N9CW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BrainGame;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braingame.app;
+				SDKROOT = iphoneos;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9512489EF0632DF59C656D5F /* Build configuration list for PBXNativeTarget "BrainGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED1AE7A3D92B8DC4BF1CA0D8 /* Debug */,
+				9717E7DBBF1EB5F3A03134CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BF5A2F8F420E945063ED533B /* Build configuration list for PBXProject "BrainGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C1716C9F34D79B2BD744AF /* Debug */,
+				AC1CEC7FB79A55997A731665 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67A50624B7445292B4B8DA14 /* Project object */;
+}

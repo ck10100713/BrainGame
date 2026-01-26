@@ -1,0 +1,84 @@
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/xcshareddata/
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+
+# Build
+build/
+DerivedData/
+*.build/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+Pods/
+*.xcworkspace
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE
+*.swp
+*.swo
+*~
+.idea/
+*.iml
+
+# Node (for Web version)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn
+
+# Vite / Build output
+dist/
+*.local
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Archive
+*.zip
+*.tar.gz
+
+# Secrets
+*.pem
+*.p12
+*.mobileprovision

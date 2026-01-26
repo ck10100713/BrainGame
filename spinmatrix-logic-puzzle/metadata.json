@@ -1,5 +1,23 @@
 {
-  "name": "SpinMatrix Logic Puzzle",
-  "description": "A spatial reasoning game inspired by 'The Brain'. Rotate 2x2 blocks to match the target pattern. Features 4x4 and 6x6 difficulties.",
+  "name": "BrainGame",
+  "description": "A collection of spatial reasoning and cognitive logic puzzle games. Features SpinMatrix (rotate sub-grids), SphereShift (shift rows/columns with blind mode), and HexLogic (hexagonal rotation puzzles).",
+  "version": "1.0.0",
+  "games": [
+    {
+      "id": "SPIN_MATRIX",
+      "name": "SpinMatrix",
+      "description": "Rotate 2x2 sub-grids to match the target pattern"
+    },
+    {
+      "id": "SPHERE_SHIFT",
+      "name": "SphereShift",
+      "description": "Shift rows and columns of spheres to align colors"
+    },
+    {
+      "id": "HEX_LOGIC",
+      "name": "HexLogic",
+      "description": "Rotate hexagonal clusters of triangles"
+    }
+  ],
   "requestFramePermissions": []
 }

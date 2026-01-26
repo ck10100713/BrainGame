@@ -1,4 +1,4 @@
-name: SpinMatrix
+name: BrainGame
 options:
   bundleIdPrefix: com.braingame
   deploymentTarget:
@@ -13,11 +13,16 @@ settings:
     DEVELOPMENT_TEAM: ""
 
 targets:
-  SpinMatrix:
+  BrainGame:
     type: application
     platform: iOS
     sources:
-      - SpinMatrix
+      - path: SpinMatrix
+        excludes:
+          - SpinMatrixApp.swift
+          - Models
+          - ViewModels
+          - Views
     settings:
       base:
         GENERATE_INFOPLIST_FILE: "YES"
@@ -25,7 +30,8 @@ targets:
         INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
-        PRODUCT_BUNDLE_IDENTIFIER: com.braingame.spinmatrix
+        PRODUCT_BUNDLE_IDENTIFIER: com.braingame.app
+        INFOPLIST_KEY_CFBundleDisplayName: "BrainGame"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         SWIFT_EMIT_LOC_STRINGS: "YES"
