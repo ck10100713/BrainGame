@@ -1,0 +1,5 @@
+{
+  "name": "SpinMatrix Logic Puzzle",
+  "description": "A spatial reasoning game inspired by 'The Brain'. Rotate 2x2 blocks to match the target pattern. Features 4x4 and 6x6 difficulties.",
+  "requestFramePermissions": []
+}
