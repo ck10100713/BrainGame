@@ -1,38 +1,39 @@
 import SwiftUI
 
-struct SpinMatrixGameView: View {
+struct FlipTileGameView: View {
     @EnvironmentObject var navigationStore: NavigationStore
-    @StateObject private var viewModel = SpinMatrixViewModel()
+    @StateObject private var viewModel = FlipTileViewModel()
 
     var body: some View {
         ScrollView {
             VStack(spacing: Spacing.lg) {
                 // Game Board
                 ZStack {
-                    SpinMatrixBoardView(
-                        grid: viewModel.grid,
+                    FlipTileBoardView(
+                        grid: viewModel.playerGrid,
                         isInteractive: viewModel.isPlaying && !viewModel.isSolved,
-                        onRotate: viewModel.handleRotate
+                        onTileClick: viewModel.handleTileClick
                     )
 
                     // Victory Overlay
                     if viewModel.isSolved {
-                        VictoryOverlay(moves: viewModel.moves, time: viewModel.elapsedTime)
+                        FlipTileVictoryOverlay(moves: viewModel.moves, time: viewModel.elapsedTime)
                     }
                 }
                 .maxBoardWidth()
 
-                Text("Tap the circular icons to rotate surrounding blocks clockwise.")
+                Text("Tap tiles to flip them and their neighbors. Match the target pattern!")
                     .font(BrainGameTypography.caption)
                     .foregroundColor(BrainGameColors.textTertiary)
+                    .multilineTextAlignment(.center)
 
                 // Info Panel
-                SpinMatrixInfoPanel(viewModel: viewModel)
+                FlipTileInfoPanel(viewModel: viewModel)
                     .maxPanelWidth()
             }
             .padding(Spacing.md)
         }
-        .navigationTitle("SpinMatrix")
+        .navigationTitle("FlipTile")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -50,8 +51,9 @@ struct SpinMatrixGameView: View {
     }
 }
 
+// MARK: - Victory Overlay
 
-struct VictoryOverlay: View {
+struct FlipTileVictoryOverlay: View {
     let moves: Int
     let time: Int
 
@@ -73,13 +75,13 @@ struct VictoryOverlay: View {
                     Label("\(time)s", systemImage: "sparkles")
                 }
                 .font(BrainGameTypography.headline)
-                .foregroundColor(BrainGameColors.accentSpinMatrix)
+                .foregroundColor(BrainGameColors.accentFlipTile)
             }
         }
     }
 }
 
 #Preview {
-    SpinMatrixGameView()
+    FlipTileGameView()
         .environmentObject(NavigationStore())
 }

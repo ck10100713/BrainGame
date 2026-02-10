@@ -1,32 +1,9 @@
-// ============================================
-// BrainGame - Shared Type Definitions
-// ============================================
-
-// Game Identifiers
-export type GameId = 'SPIN_MATRIX' | 'SPHERE_SHIFT' | 'HEX_LOGIC';
-
-// Base Game State Interface
-export interface BaseGameState {
-  moves: number;
-  isSolved: boolean;
-  isPlaying: boolean;
-  elapsedTime: number;
-}
-
-// ============================================
-// SpinMatrix Game Types
-// ============================================
-
 export enum BlockColor {
   RED = 'RED',
   BLUE = 'BLUE',
   GREEN = 'GREEN',
   YELLOW = 'YELLOW',
 }
-
-// ============================================
-// SphereShift Game Types
-// ============================================
 
 export enum SphereColor {
   CYAN = 'CYAN',
@@ -35,10 +12,6 @@ export enum SphereColor {
   BLUE = 'BLUE',
   GREEN = 'GREEN',
 }
-
-// ============================================
-// HexLogic Game Types
-// ============================================
 
 export enum HexColor {
   RED = 'RED',        // Top
@@ -49,9 +22,10 @@ export enum HexColor {
   CYAN = 'CYAN',      // Top-Left
 }
 
-// ============================================
-// Color Mappings & Styles
-// ============================================
+export enum FlipState {
+  LIGHT = 0, // White/Empty
+  DARK = 1,  // Black/Filled
+}
 
 // Map logical colors to Tailwind classes
 export const COLOR_MAP: Record<BlockColor, string> = {
@@ -81,48 +55,16 @@ export const HEX_COLOR_MAP: Record<HexColor, string> = {
   [HexColor.CYAN]: '#06b6d4',
 };
 
-// ============================================
-// Grid State Types
-// ============================================
+export type GridState = BlockColor[][];
+export type SphereGridState = SphereColor[][];
+export type HexGridState = HexColor[]; // Flat array of 54 triangles
+export type FlipGridState = FlipState[][];
 
-export type GridState = BlockColor[][];           // SpinMatrix grid
-export type SphereGridState = SphereColor[][];    // SphereShift grid
-export type HexGridState = HexColor[];            // HexLogic - flat array of 54 triangles
-
-// ============================================
-// Difficulty Settings
-// ============================================
-
-export type Difficulty = 4 | 6;                   // SpinMatrix: 4x4 or 6x6
+export type Difficulty = 4 | 6; // For SpinMatrix
 export type SphereDifficulty = 'STANDARD' | 'BLIND';
 export type HexDifficulty = 'NORMAL';
+export type FlipDifficulty = 'SYMMETRIC' | 'ASYMMETRIC';
 
-// ============================================
-// Game State Interfaces
-// ============================================
-
-// SpinMatrix specific game state
-export interface SpinMatrixGameState extends BaseGameState {
-  grid: GridState;
-  target: GridState;
-  difficulty: Difficulty;
-  startTime: number | null;
-}
-
-// SphereShift specific game state
-export interface SphereShiftGameState extends BaseGameState {
-  grid: SphereGridState;
-  difficulty: SphereDifficulty;
-  attempts: number;
-}
-
-// HexLogic specific game state
-export interface HexLogicGameState extends BaseGameState {
-  grid: HexGridState;
-  target: HexGridState;
-}
-
-// Legacy GameState (for backward compatibility)
 export interface GameState {
   grid: GridState;
   target: GridState;
@@ -131,5 +73,5 @@ export interface GameState {
   isSolved: boolean;
   isPlaying: boolean;
   startTime: number | null;
-  elapsedTime: number;
+  elapsedTime: number; // in seconds
 }

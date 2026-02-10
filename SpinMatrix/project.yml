@@ -18,11 +18,6 @@ targets:
     platform: iOS
     sources:
       - path: SpinMatrix
-        excludes:
-          - SpinMatrixApp.swift
-          - Models
-          - ViewModels
-          - Views
     settings:
       base:
         GENERATE_INFOPLIST_FILE: "YES"

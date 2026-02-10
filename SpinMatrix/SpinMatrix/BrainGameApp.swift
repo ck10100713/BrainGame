@@ -16,26 +16,26 @@ struct RootView: View {
     @EnvironmentObject var navigationStore: NavigationStore
 
     var body: some View {
-        ZStack {
-            // Background
-            LinearGradient(
-                colors: [Color(hex: "0f172a"), Color(hex: "1e293b")],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+        NavigationStack {
+            ZStack {
+                // Background - using design system colors
+                BrainGameColors.backgroundGradient
+                    .ignoresSafeArea()
 
-            // Content
-            switch navigationStore.currentView {
-            case .menu:
-                MainMenuView()
-                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                // Content
+                switch navigationStore.currentView {
+                case .menu:
+                    MainMenuView()
+                        .transition(.opacity.combined(with: .scale(scale: 0.95)))
 
-            case .game(let gameId):
-                gameView(for: gameId)
-                    .transition(.opacity.combined(with: .move(edge: .trailing)))
+                case .game(let gameId):
+                    gameView(for: gameId)
+                        .transition(.opacity.combined(with: .move(edge: .trailing)))
+                }
             }
+            .toolbarBackground(.hidden, for: .navigationBar)
         }
+        .tint(BrainGameColors.textPrimary)
     }
 
     @ViewBuilder
@@ -47,6 +47,8 @@ struct RootView: View {
             SphereGameView()
         case .hexLogic:
             HexGameView()
+        case .flipTile:
+            FlipTileGameView()
         }
     }
 }

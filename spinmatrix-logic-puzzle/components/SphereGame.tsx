@@ -20,6 +20,7 @@ const SphereGame: React.FC<SphereGameProps> = ({ onBack }) => {
   const [attempts, setAttempts] = useState(3);
   const [showFailModal, setShowFailModal] = useState(false);
   const [isRevealing, setIsRevealing] = useState(false); // True when checking submission
+  const [isMemorizing, setIsMemorizing] = useState(false); // Blind mode: show puzzle before hiding
 
   const timerRef = useRef<number | null>(null);
 
@@ -27,7 +28,6 @@ const SphereGame: React.FC<SphereGameProps> = ({ onBack }) => {
     if (startPlaying) {
       const scrambled = scrambleSphereGrid(40);
       setGrid(scrambled);
-      setIsPlaying(true);
       setMoves(0);
       setElapsedTime(0);
       setIsSolved(false);
@@ -35,18 +35,38 @@ const SphereGame: React.FC<SphereGameProps> = ({ onBack }) => {
       setShowFailModal(false);
       setIsRevealing(false);
 
-      if (timerRef.current) clearInterval(timerRef.current);
-      timerRef.current = window.setInterval(() => {
-        setElapsedTime(prev => prev + 1);
-      }, 1000);
+      if (diff === 'BLIND') {
+        // Blind mode: show puzzle first for memorization
+        setIsMemorizing(true);
+        setIsPlaying(false); // Not playing yet, just memorizing
+      } else {
+        // Standard mode: start immediately
+        setIsPlaying(true);
+        setIsMemorizing(false);
+        if (timerRef.current) clearInterval(timerRef.current);
+        timerRef.current = window.setInterval(() => {
+          setElapsedTime(prev => prev + 1);
+        }, 1000);
+      }
     } else {
       // Reset to preview/idle state
       setGrid(createSolvedSphereGrid());
       setIsPlaying(false);
       setIsSolved(false);
+      setIsMemorizing(false);
       if (timerRef.current) clearInterval(timerRef.current);
       timerRef.current = null;
     }
+  }, []);
+
+  // Blind mode: start playing after memorization phase
+  const startBlindPhase = useCallback(() => {
+    setIsMemorizing(false);
+    setIsPlaying(true);
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = window.setInterval(() => {
+      setElapsedTime(prev => prev + 1);
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -270,18 +290,42 @@ const SphereGame: React.FC<SphereGameProps> = ({ onBack }) => {
             )}
 
              {/* Main Action Buttons */}
-             {!isPlaying && !isSolved ? (
+             {!isPlaying && !isSolved && !isMemorizing ? (
                 <button
                     onClick={() => initGame(difficulty, true)}
                     className="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-display font-bold text-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                     <Play fill="currentColor" /> START
                 </button>
+             ) : isMemorizing ? (
+                 <div className="space-y-3">
+                    <div className="bg-purple-900/50 border border-purple-500/50 p-4 rounded-xl text-center">
+                      <div className="flex items-center justify-center gap-2 text-purple-300 mb-2">
+                        <Eye size={20} />
+                        <span className="font-bold uppercase text-sm">Memorization Phase</span>
+                      </div>
+                      <p className="text-slate-400 text-sm">
+                        Study the pattern carefully. When ready, click below to hide the colors and begin solving.
+                      </p>
+                    </div>
+                    <button
+                        onClick={startBlindPhase}
+                        className="w-full py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-display font-bold text-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
+                    >
+                        <EyeOff size={20} /> I'M READY - HIDE COLORS
+                    </button>
+                    <button
+                        onClick={() => initGame(difficulty, false)}
+                        className="w-full py-2 bg-slate-700/50 hover:bg-slate-600 text-slate-300 font-bold rounded-xl transition-all flex items-center justify-center gap-2"
+                    >
+                        <RotateCcw size={16} /> CANCEL
+                    </button>
+                 </div>
              ) : (
                  <div className="space-y-3">
                     {/* Submit Button for Blind Mode */}
                     {difficulty === 'BLIND' && !isSolved && (
-                        <button 
+                        <button
                             onClick={handleSubmitBlind}
                             className="w-full py-4 bg-gradient-to-r from-amber-500 to-orange-600 hover:brightness-110 text-white font-display font-bold text-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
                         >

@@ -8,21 +8,21 @@ struct SphereBoardView: View {
     let onShiftCol: (Int, Int) -> Void  // (colIndex, direction)
 
     private let size = SphereConstants.gridSize
-    private let sphereSize: CGFloat = 48
-    private let spacing: CGFloat = 8
+    private let sphereSize: CGFloat = LayoutMetrics.sphereCellSize
+    private let spacing: CGFloat = Spacing.xs
 
     var body: some View {
-        VStack(spacing: 8) {
-            // Top Column Controls (Up arrows)
+        VStack(spacing: Spacing.xs) {
+            // Top Column Controls (Up arrows) - 44pt touch targets
             HStack(spacing: spacing) {
-                Spacer().frame(width: 32)
+                Spacer().frame(width: LayoutMetrics.arrowButtonSize)
                 ForEach(0..<size, id: \.self) { i in
                     ArrowButton(direction: .up, isDisabled: !isInteractive) {
                         onShiftCol(i, -1)
                     }
-                    .frame(width: sphereSize, height: 32)
+                    .frame(width: sphereSize, height: LayoutMetrics.arrowButtonSize)
                 }
-                Spacer().frame(width: 32)
+                Spacer().frame(width: LayoutMetrics.arrowButtonSize)
             }
 
             HStack(spacing: spacing) {
@@ -32,7 +32,7 @@ struct SphereBoardView: View {
                         ArrowButton(direction: .left, isDisabled: !isInteractive) {
                             onShiftRow(i, -1)
                         }
-                        .frame(width: 32, height: sphereSize)
+                        .frame(width: LayoutMetrics.arrowButtonSize, height: sphereSize)
                     }
                 }
 
@@ -50,13 +50,13 @@ struct SphereBoardView: View {
                         }
                     }
                 }
-                .padding(12)
+                .padding(Spacing.sm)
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color(hex: "0f172a").opacity(0.5))
+                    RoundedRectangle(cornerRadius: ComponentTokens.radiusXL)
+                        .fill(BrainGameColors.backgroundPrimary.opacity(0.5))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color(hex: "475569"), lineWidth: 1)
+                            RoundedRectangle(cornerRadius: ComponentTokens.radiusXL)
+                                .stroke(BrainGameColors.border, lineWidth: ComponentTokens.borderThin)
                         )
                 )
 
@@ -66,21 +66,21 @@ struct SphereBoardView: View {
                         ArrowButton(direction: .right, isDisabled: !isInteractive) {
                             onShiftRow(i, 1)
                         }
-                        .frame(width: 32, height: sphereSize)
+                        .frame(width: LayoutMetrics.arrowButtonSize, height: sphereSize)
                     }
                 }
             }
 
             // Bottom Column Controls (Down arrows)
             HStack(spacing: spacing) {
-                Spacer().frame(width: 32)
+                Spacer().frame(width: LayoutMetrics.arrowButtonSize)
                 ForEach(0..<size, id: \.self) { i in
                     ArrowButton(direction: .down, isDisabled: !isInteractive) {
                         onShiftCol(i, 1)
                     }
-                    .frame(width: sphereSize, height: 32)
+                    .frame(width: sphereSize, height: LayoutMetrics.arrowButtonSize)
                 }
-                Spacer().frame(width: 32)
+                Spacer().frame(width: LayoutMetrics.arrowButtonSize)
             }
         }
     }
@@ -103,21 +103,21 @@ struct SphereCell: View {
                 )
             )
             .shadow(
-                color: isBlind ? Color(hex: "94a3b8").opacity(0.2) : color.glowColor,
+                color: isBlind ? BrainGameColors.textSecondary.opacity(0.2) : color.glowColor,
                 radius: 8
             )
             .overlay(
                 Circle()
                     .stroke(
-                        isBlind ? Color(hex: "475569") : Color.clear,
-                        lineWidth: isBlind ? 1 : 0
+                        isBlind ? BrainGameColors.border : Color.clear,
+                        lineWidth: isBlind ? ComponentTokens.borderThin : 0
                     )
             )
             .animation(.easeInOut(duration: 0.3), value: isBlind)
     }
 
     private var blindGradient: [Color] {
-        [Color(hex: "94a3b8"), Color(hex: "475569"), Color(hex: "1e293b")]
+        [BrainGameColors.textSecondary, BrainGameColors.border, BrainGameColors.backgroundSecondary]
     }
 }
 
@@ -147,7 +147,8 @@ struct ArrowButton: View {
         Button(action: action) {
             Image(systemName: direction.systemImage)
                 .font(.system(size: 20, weight: .semibold))
-                .foregroundColor(isDisabled ? Color(hex: "475569") : Color(hex: "94a3b8"))
+                .foregroundColor(isDisabled ? BrainGameColors.border : BrainGameColors.textSecondary)
+                .frame(width: LayoutMetrics.arrowButtonSize, height: LayoutMetrics.arrowButtonSize)
                 .scaleEffect(isPressed ? 0.8 : 1.0)
         }
         .disabled(isDisabled)
@@ -169,5 +170,5 @@ struct ArrowButton: View {
         onShiftCol: { _, _ in }
     )
     .padding()
-    .background(Color(hex: "0f172a"))
+    .background(BrainGameColors.backgroundPrimary)
 }

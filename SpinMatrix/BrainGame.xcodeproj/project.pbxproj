@@ -11,46 +11,70 @@
 		04DA23AA8B87FFA686F6395F /* SpinMatrixGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E7BABEA915DBDAA83978A /* SpinMatrixGameView.swift */; };
 		0E4F94D709AFE9CBD6FF0B53 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DB7E2E70E2B5683620911 /* MainMenuView.swift */; };
 		12A3A45AB70E17A5D1BE68AC /* HexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68BFA395ECB2B72B848F06F /* HexViewModel.swift */; };
+		17AA08AE23DAB79653379281 /* FlipTileLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8906849B6C9F5C9E19F478BC /* FlipTileLogic.swift */; };
+		2A232E8E27BCB2BE29776271 /* FlipTileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46144DB031AAD3379051BBA4 /* FlipTileViewModel.swift */; };
 		2C8835B4029B585609A9FE66 /* SharedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B670412A987051E3C4A80E /* SharedComponents.swift */; };
 		36917CBDEA4D683B4DE6713A /* SphereViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0E6C7F9874173CD9ADDA9 /* SphereViewModel.swift */; };
 		3753BEC198520B4730C2B182 /* BrainGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11993E5F71051C5BDE5711F /* BrainGameApp.swift */; };
+		3883D537E41540700D1EF7C3 /* BrainGameComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A8D9CD440EAB1A787F2476 /* BrainGameComponents.swift */; };
 		3E070E830F587F515C2DD4D5 /* HexGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A5CC408645D3EB66692B55 /* HexGameView.swift */; };
+		535932333B718D258CEDB6D6 /* FlipTileBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CCCB135FBD057835F06CD9 /* FlipTileBoardView.swift */; };
 		5558F538A4F049378903A8C7 /* SphereLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FFA060B3EACF05C6D844A /* SphereLogic.swift */; };
 		562CFD220B524BF54B260EE7 /* SpinMatrixLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D33B87B2B1A5BC16D8ECE /* SpinMatrixLogic.swift */; };
 		5E1890CFD426813048FEC9AC /* SpinMatrixBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95521623B31F13903333CFD3 /* SpinMatrixBoardView.swift */; };
+		5F473B2BE5FCCCBC75A1D4FD /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE86AC80E293D3C4472C4B /* ButtonStyles.swift */; };
 		69D717CC48E6A486AAC7259B /* HexLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5380CEB40DE832CD756AD6 /* HexLogic.swift */; };
 		6D31FDDEC9D5C405F87652EC /* SpinMatrixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24CC45056F0852E1BFA952A /* SpinMatrixViewModel.swift */; };
+		6D61250EF68CC074187DADF1 /* BrainGameSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679844ADA43294F980ECB079 /* BrainGameSpacing.swift */; };
+		6D7D975DB07CEEFF2311E490 /* FlipTileGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6913B77F1A31916BD4E820 /* FlipTileGameView.swift */; };
 		7249D0CDAA81DA64821A0E87 /* SphereGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAFB16079E237B05225D0B5 /* SphereGameView.swift */; };
 		73637BBA01AE05C808355FC4 /* HexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4610855C0D60AF6294B6EA2 /* HexModels.swift */; };
+		8C9E920B3122B68DB087B512 /* FlipTileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4AFEA6F2256ABC2149996 /* FlipTileModels.swift */; };
+		8E0B3B357DF05E276887B4F5 /* FlipTileInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1772F78418E1C025BE13A4 /* FlipTileInfoPanel.swift */; };
 		9360D25E089CB8BEDB926FBE /* SphereModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651E5F26CAE0045958F61EE /* SphereModels.swift */; };
 		97F7E46761FCBE39B1982BDA /* SpinMatrixInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D199062A4F1B7F765FA7A596 /* SpinMatrixInfoPanel.swift */; };
+		A1017CC93771FDE68747A27D /* BrainGameColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D394C7FBE6211CC5CD4424FB /* BrainGameColors.swift */; };
 		B3A49699A8BBFF06D18CC393 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84CEEEF568C8EE414875EBD /* Assets.xcassets */; };
 		BDA9A4016DF5438383399732 /* HexBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C89E4143B7179C097644D4 /* HexBoardView.swift */; };
 		C1934D8A947B9ED56B92B5BD /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614C71CB47764FBF2F6D738 /* NavigationState.swift */; };
 		CE0D278BD99C065BFA8A4943 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6EDF597A8A4E2F65705961 /* Color+Hex.swift */; };
 		E7E3BBCF14CA8EF0272B1393 /* SpinMatrixModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21F8CF6C8B1F6C58D7618 /* SpinMatrixModels.swift */; };
 		F31FCCB166298CB9B8088F47 /* HexGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2854D59A514B6309E0A2BD /* HexGeometry.swift */; };
+		FA40162C3FA9FF02F9A197AF /* BrainGameTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6E8AC08C8A7C11C8A9571 /* BrainGameTypography.swift */; };
+		FC773C773F7AD3FF349B044D /* LayoutMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928B8EA4882B2C0B99C4E8E /* LayoutMetrics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16CCCB135FBD057835F06CD9 /* FlipTileBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTileBoardView.swift; sourceTree = "<group>"; };
 		20FF5080C3A3131CFE39DBB1 /* SphereBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereBoardView.swift; sourceTree = "<group>"; };
 		2CAFB16079E237B05225D0B5 /* SphereGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereGameView.swift; sourceTree = "<group>"; };
+		2DAE86AC80E293D3C4472C4B /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		3B7E7BABEA915DBDAA83978A /* SpinMatrixGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixGameView.swift; sourceTree = "<group>"; };
+		3F1772F78418E1C025BE13A4 /* FlipTileInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTileInfoPanel.swift; sourceTree = "<group>"; };
+		46144DB031AAD3379051BBA4 /* FlipTileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTileViewModel.swift; sourceTree = "<group>"; };
 		4651E5F26CAE0045958F61EE /* SphereModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereModels.swift; sourceTree = "<group>"; };
 		52E0D0DA32C09AD4897450D4 /* BrainGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55A8D9CD440EAB1A787F2476 /* BrainGameComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameComponents.swift; sourceTree = "<group>"; };
 		5ED21F8CF6C8B1F6C58D7618 /* SpinMatrixModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixModels.swift; sourceTree = "<group>"; };
+		679844ADA43294F980ECB079 /* BrainGameSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameSpacing.swift; sourceTree = "<group>"; };
+		6C6913B77F1A31916BD4E820 /* FlipTileGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTileGameView.swift; sourceTree = "<group>"; };
 		7BC0E6C7F9874173CD9ADDA9 /* SphereViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereViewModel.swift; sourceTree = "<group>"; };
 		846DB7E2E70E2B5683620911 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		8906849B6C9F5C9E19F478BC /* FlipTileLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTileLogic.swift; sourceTree = "<group>"; };
 		95521623B31F13903333CFD3 /* SpinMatrixBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixBoardView.swift; sourceTree = "<group>"; };
 		981FFA060B3EACF05C6D844A /* SphereLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereLogic.swift; sourceTree = "<group>"; };
 		99B670412A987051E3C4A80E /* SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedComponents.swift; sourceTree = "<group>"; };
 		A11993E5F71051C5BDE5711F /* BrainGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameApp.swift; sourceTree = "<group>"; };
 		A24CC45056F0852E1BFA952A /* SpinMatrixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixViewModel.swift; sourceTree = "<group>"; };
 		AF2854D59A514B6309E0A2BD /* HexGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexGeometry.swift; sourceTree = "<group>"; };
+		B928B8EA4882B2C0B99C4E8E /* LayoutMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutMetrics.swift; sourceTree = "<group>"; };
 		C68BFA395ECB2B72B848F06F /* HexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexViewModel.swift; sourceTree = "<group>"; };
 		D199062A4F1B7F765FA7A596 /* SpinMatrixInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMatrixInfoPanel.swift; sourceTree = "<group>"; };
+		D394C7FBE6211CC5CD4424FB /* BrainGameColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameColors.swift; sourceTree = "<group>"; };
 		D84CEEEF568C8EE414875EBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAF4AFEA6F2256ABC2149996 /* FlipTileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTileModels.swift; sourceTree = "<group>"; };
 		E614C71CB47764FBF2F6D738 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
+		EAB6E8AC08C8A7C11C8A9571 /* BrainGameTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameTypography.swift; sourceTree = "<group>"; };
 		EB5380CEB40DE832CD756AD6 /* HexLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexLogic.swift; sourceTree = "<group>"; };
 		EF6EDF597A8A4E2F65705961 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		F1C89E4143B7179C097644D4 /* HexBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexBoardView.swift; sourceTree = "<group>"; };
@@ -81,6 +105,15 @@
 			path = SpinMatrix;
 			sourceTree = "<group>";
 		};
+		19D1CEC19F8FD150DD45EF95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8906849B6C9F5C9E19F478BC /* FlipTileLogic.swift */,
+				DAF4AFEA6F2256ABC2149996 /* FlipTileModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		216A2BD626F6DD657D2FD479 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +136,7 @@
 		371B06D4A60A5E0D213805AA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				BB37255A6679603D359406CA /* FlipTile */,
 				9EB7B8B5011596AE877A65A2 /* HexLogic */,
 				6BD8BB3010BE97F856C53728 /* MainMenu */,
 				41DC3A4D69EEAF5F54E2A8F0 /* SphereShift */,
@@ -208,12 +242,35 @@
 			path = SpinMatrix;
 			sourceTree = "<group>";
 		};
+		BB37255A6679603D359406CA /* FlipTile */ = {
+			isa = PBXGroup;
+			children = (
+				19D1CEC19F8FD150DD45EF95 /* Models */,
+				F78B7019C0CD61D404C5A3F1 /* ViewModels */,
+				FADEEF55308FDD24A7DAA923 /* Views */,
+			);
+			path = FlipTile;
+			sourceTree = "<group>";
+		};
 		C6EDE97AB736BAA021337C0B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				C68BFA395ECB2B72B848F06F /* HexViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CEEEB79F3D4B067B681ACD22 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				D394C7FBE6211CC5CD4424FB /* BrainGameColors.swift */,
+				55A8D9CD440EAB1A787F2476 /* BrainGameComponents.swift */,
+				679844ADA43294F980ECB079 /* BrainGameSpacing.swift */,
+				EAB6E8AC08C8A7C11C8A9571 /* BrainGameTypography.swift */,
+				2DAE86AC80E293D3C4472C4B /* ButtonStyles.swift */,
+				B928B8EA4882B2C0B99C4E8E /* LayoutMetrics.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		D64ABBDC6B529F79E8ACF163 /* ViewModels */ = {
@@ -241,6 +298,24 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		F78B7019C0CD61D404C5A3F1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				46144DB031AAD3379051BBA4 /* FlipTileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FADEEF55308FDD24A7DAA923 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16CCCB135FBD057835F06CD9 /* FlipTileBoardView.swift */,
+				6C6913B77F1A31916BD4E820 /* FlipTileGameView.swift */,
+				3F1772F78418E1C025BE13A4 /* FlipTileInfoPanel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FE4E9AA5E65925F201B20AC3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +327,7 @@
 		FFFD34EDA75B4FBF39BF291A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CEEEB79F3D4B067B681ACD22 /* DesignSystem */,
 				A30BA0DB6BAC2BFD539371F5 /* Extensions */,
 				94F0C59DC739BB5F6860A409 /* Navigation */,
 			);
@@ -323,13 +399,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3753BEC198520B4730C2B182 /* BrainGameApp.swift in Sources */,
+				A1017CC93771FDE68747A27D /* BrainGameColors.swift in Sources */,
+				3883D537E41540700D1EF7C3 /* BrainGameComponents.swift in Sources */,
+				6D61250EF68CC074187DADF1 /* BrainGameSpacing.swift in Sources */,
+				FA40162C3FA9FF02F9A197AF /* BrainGameTypography.swift in Sources */,
+				5F473B2BE5FCCCBC75A1D4FD /* ButtonStyles.swift in Sources */,
 				CE0D278BD99C065BFA8A4943 /* Color+Hex.swift in Sources */,
+				535932333B718D258CEDB6D6 /* FlipTileBoardView.swift in Sources */,
+				6D7D975DB07CEEFF2311E490 /* FlipTileGameView.swift in Sources */,
+				8E0B3B357DF05E276887B4F5 /* FlipTileInfoPanel.swift in Sources */,
+				17AA08AE23DAB79653379281 /* FlipTileLogic.swift in Sources */,
+				8C9E920B3122B68DB087B512 /* FlipTileModels.swift in Sources */,
+				2A232E8E27BCB2BE29776271 /* FlipTileViewModel.swift in Sources */,
 				BDA9A4016DF5438383399732 /* HexBoardView.swift in Sources */,
 				3E070E830F587F515C2DD4D5 /* HexGameView.swift in Sources */,
 				F31FCCB166298CB9B8088F47 /* HexGeometry.swift in Sources */,
 				69D717CC48E6A486AAC7259B /* HexLogic.swift in Sources */,
 				73637BBA01AE05C808355FC4 /* HexModels.swift in Sources */,
 				12A3A45AB70E17A5D1BE68AC /* HexViewModel.swift in Sources */,
+				FC773C773F7AD3FF349B044D /* LayoutMetrics.swift in Sources */,
 				0E4F94D709AFE9CBD6FF0B53 /* MainMenuView.swift in Sources */,
 				C1934D8A947B9ED56B92B5BD /* NavigationState.swift in Sources */,
 				2C8835B4029B585609A9FE66 /* SharedComponents.swift in Sources */,

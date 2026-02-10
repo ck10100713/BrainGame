@@ -1,9 +1,8 @@
 {
-  "name": "braingame",
+  "name": "spinmatrix-logic-puzzle",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
-  "description": "A collection of spatial reasoning and logic puzzle games",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

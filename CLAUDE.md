@@ -4,10 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 專案概述
 
-BrainGame 是一個益智遊戲集合，目標是將 React/Web 版本的遊戲移植到 iOS Swift/SwiftUI 原生應用程式。
+BrainGame 是一個益智遊戲集合，**主要開發目標是 iOS Swift/SwiftUI 原生應用程式**。
 
-**Web 版 (React/TypeScript)**: `spinmatrix-logic-puzzle/` - 已完成 3 個遊戲
-**iOS 版 (Swift/SwiftUI)**: `SpinMatrix/` - 目前只有 SpinMatrix 遊戲
+**Web 版 (React/TypeScript)**: `spinmatrix-logic-puzzle/` - 僅作為基礎範例參考，不是主要開發目標
+**iOS 版 (Swift/SwiftUI)**: `SpinMatrix/` - **主要開發項目**
+
+> ⚠️ **重要**：Web 版本僅供快速原型驗證和邏輯參考，所有正式功能開發都應在 iOS app 上進行。
 
 ## 常用指令
 

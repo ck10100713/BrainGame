@@ -6,41 +6,31 @@ struct SphereGameView: View {
 
     var body: some View {
         ZStack {
-            // Main Content
-            VStack(spacing: 24) {
-                // Header
-                GameHeader(
-                    title: "SphereShift",
-                    subtitle: "Color Alignment Challenge",
-                    gradientColors: [.cyan, .teal]
-                )
-
-                ScrollView {
-                    VStack(spacing: 24) {
-                        // Victory Banner
-                        if viewModel.isSolved {
-                            SolvedBanner(time: viewModel.formattedTime)
-                        }
-
-                        // Game Board
-                        SphereBoardView(
-                            grid: viewModel.grid,
-                            isInteractive: viewModel.isPlaying && !viewModel.isSolved && !viewModel.showFailModal,
-                            isBlind: viewModel.renderBlind,
-                            onShiftRow: viewModel.handleShiftRow,
-                            onShiftCol: viewModel.handleShiftCol
-                        )
-
-                        Text("Use arrows to shift entire rows or columns.")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-
-                        // Info Panel
-                        SphereInfoPanel(viewModel: viewModel)
-                            .frame(maxWidth: 400)
+            ScrollView {
+                VStack(spacing: Spacing.lg) {
+                    // Victory Banner
+                    if viewModel.isSolved {
+                        SolvedBanner(time: viewModel.formattedTime)
                     }
-                    .padding()
+
+                    // Game Board
+                    SphereBoardView(
+                        grid: viewModel.grid,
+                        isInteractive: viewModel.isPlaying && !viewModel.isSolved && !viewModel.showFailModal,
+                        isBlind: viewModel.renderBlind,
+                        onShiftRow: viewModel.handleShiftRow,
+                        onShiftCol: viewModel.handleShiftCol
+                    )
+
+                    Text("Use arrows to shift entire rows or columns.")
+                        .font(BrainGameTypography.caption)
+                        .foregroundColor(BrainGameColors.textTertiary)
+
+                    // Info Panel
+                    SphereInfoPanel(viewModel: viewModel)
+                        .maxPanelWidth()
                 }
+                .padding(Spacing.md)
             }
 
             // Fail Modal Overlay
@@ -52,6 +42,21 @@ struct SphereGameView: View {
                 )
             }
         }
+        .navigationTitle("SphereShift")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    navigationStore.navigateToMenu()
+                } label: {
+                    HStack(spacing: Spacing.xxs) {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
+                    }
+                    .foregroundColor(BrainGameColors.textSecondary)
+                }
+            }
+        }
     }
 }
 
@@ -61,23 +66,23 @@ struct SolvedBanner: View {
     let time: String
 
     var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: Spacing.xxs) {
             Text("COMPLETE!")
-                .font(.system(size: 28, weight: .bold, design: .rounded))
+                .font(BrainGameTypography.gameTitle)
                 .foregroundStyle(
                     LinearGradient(
-                        colors: [.green, .cyan],
+                        colors: [BrainGameColors.accentSphere, BrainGameColors.accentSpinMatrix],
                         startPoint: .leading,
                         endPoint: .trailing
                     )
                 )
-                .shadow(color: .green.opacity(0.5), radius: 10)
+                .shadow(color: BrainGameColors.accentSphere.opacity(0.5), radius: 10)
 
             Text("Target reached in \(time)")
-                .font(.caption)
-                .foregroundColor(.gray)
+                .font(BrainGameTypography.caption)
+                .foregroundColor(BrainGameColors.textTertiary)
         }
-        .padding()
+        .padding(Spacing.md)
     }
 }
 
@@ -87,15 +92,15 @@ struct SphereInfoPanel: View {
     @ObservedObject var viewModel: SphereViewModel
 
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: Spacing.md) {
             // Stats
-            HStack(spacing: 16) {
+            HStack(spacing: Spacing.md) {
                 StatCard(icon: "clock", title: "TIME", value: viewModel.formattedTime)
                 StatCard(icon: "arrow.up.and.down.and.arrow.left.and.right", title: "MOVES", value: "\(viewModel.moves)")
             }
 
             // Mode Selector
-            HStack(spacing: 4) {
+            HStack(spacing: Spacing.xxs) {
                 ForEach(SphereDifficulty.allCases, id: \.rawValue) { diff in
                     SphereModeButton(
                         difficulty: diff,
@@ -106,53 +111,106 @@ struct SphereInfoPanel: View {
                     }
                 }
             }
-            .padding(4)
-            .background(Color(hex: "0f172a"))
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .padding(Spacing.xxs)
+            .background(BrainGameColors.backgroundPrimary)
+            .clipShape(RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium))
 
             // Blind Mode Attempts Indicator
             if viewModel.difficulty == .blind {
                 HStack {
                     Text("Submissions Left")
-                        .font(.caption)
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
+                        .font(BrainGameTypography.captionBold)
+                        .foregroundColor(BrainGameColors.textTertiary)
                         .textCase(.uppercase)
 
                     Spacer()
 
-                    HStack(spacing: 4) {
+                    HStack(spacing: Spacing.xxs) {
                         ForEach(0..<SphereConstants.maxAttempts, id: \.self) { i in
                             Circle()
-                                .fill(i < viewModel.attempts ? Color.green : Color(hex: "475569"))
-                                .frame(width: 12, height: 12)
+                                .fill(i < viewModel.attempts ? BrainGameColors.accentSphere : BrainGameColors.border)
+                                .frame(width: Spacing.sm, height: Spacing.sm)
                                 .shadow(
-                                    color: i < viewModel.attempts ? Color.green.opacity(0.5) : .clear,
+                                    color: i < viewModel.attempts ? BrainGameColors.accentSphere.opacity(0.5) : .clear,
                                     radius: 3
                                 )
                         }
                     }
                 }
-                .padding(.horizontal, 8)
+                .padding(.horizontal, Spacing.xs)
             }
 
             // Action Buttons
-            if !viewModel.isPlaying && !viewModel.isSolved {
+            if !viewModel.isPlaying && !viewModel.isSolved && !viewModel.isMemorizing {
                 ActionButton(
                     title: "START",
                     icon: "play.fill",
-                    gradient: [.cyan, .blue]
+                    gradient: [BrainGameColors.accentSpinMatrix, Color(hex: "388BFD")]
                 ) {
                     viewModel.startGame()
                 }
+            } else if viewModel.isMemorizing {
+                // Memorization phase for Blind mode
+                VStack(spacing: Spacing.sm) {
+                    // Memorization info box
+                    VStack(spacing: Spacing.xs) {
+                        HStack(spacing: Spacing.xxs) {
+                            Image(systemName: "eye")
+                                .font(.system(size: LayoutMetrics.iconMedium))
+                            Text("MEMORIZATION PHASE")
+                                .font(BrainGameTypography.captionBold)
+                                .textCase(.uppercase)
+                        }
+                        .foregroundColor(BrainGameColors.accentBlind)
+
+                        Text("Study the pattern carefully. When ready, tap below to hide the colors and begin solving.")
+                            .font(BrainGameTypography.caption)
+                            .foregroundColor(BrainGameColors.textTertiary)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding(Spacing.md)
+                    .background(
+                        RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium)
+                            .fill(BrainGameColors.accentBlind.opacity(0.1))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium)
+                                    .stroke(BrainGameColors.accentBlind.opacity(0.5), lineWidth: ComponentTokens.borderThin)
+                            )
+                    )
+
+                    // I'm Ready button
+                    ActionButton(
+                        title: "I'M READY - HIDE COLORS",
+                        icon: "eye.slash",
+                        gradient: [BrainGameColors.accentBlind, Color(hex: "6366F1")]
+                    ) {
+                        viewModel.startBlindPhase()
+                    }
+
+                    // Cancel button
+                    Button {
+                        viewModel.resetGame()
+                    } label: {
+                        HStack(spacing: Spacing.xxs) {
+                            Image(systemName: "arrow.counterclockwise")
+                            Text("CANCEL")
+                        }
+                        .font(BrainGameTypography.subheadline.weight(.bold))
+                        .foregroundColor(BrainGameColors.textTertiary)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: TouchTarget.minimum)
+                        .background(BrainGameColors.backgroundTertiary.opacity(0.5))
+                        .clipShape(RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium))
+                    }
+                }
             } else {
-                VStack(spacing: 12) {
+                VStack(spacing: Spacing.sm) {
                     // Submit Button for Blind Mode
                     if viewModel.difficulty == .blind && !viewModel.isSolved {
                         ActionButton(
                             title: "SUBMIT PATTERN",
                             icon: "checkmark.circle",
-                            gradient: [Color(hex: "f59e0b"), Color(hex: "ea580c")]
+                            gradient: [BrainGameColors.warning, Color(hex: "EA580C")]
                         ) {
                             viewModel.handleSubmitBlind()
                         }
@@ -161,7 +219,7 @@ struct SphereInfoPanel: View {
                     ActionButton(
                         title: viewModel.isSolved ? "PLAY AGAIN" : "RESET",
                         icon: "arrow.counterclockwise",
-                        gradient: [Color(hex: "475569"), Color(hex: "334155")]
+                        gradient: [BrainGameColors.backgroundTertiary, BrainGameColors.backgroundSecondary]
                     ) {
                         viewModel.resetGame()
                     }
@@ -169,36 +227,28 @@ struct SphereInfoPanel: View {
             }
 
             // Objective Text
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Spacing.xxs) {
                 Text("Objective:")
-                    .font(.caption)
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray)
+                    .font(BrainGameTypography.captionBold)
+                    .foregroundColor(BrainGameColors.textTertiary)
 
                 Text("Make every horizontal row consist of a single unique color.")
-                    .font(.caption)
-                    .foregroundColor(Color(hex: "94a3b8"))
+                    .font(BrainGameTypography.caption)
+                    .foregroundColor(BrainGameColors.textSecondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(12)
+            .padding(Spacing.sm)
             .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color(hex: "0f172a").opacity(0.5))
+                RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium)
+                    .fill(BrainGameColors.backgroundPrimary.opacity(0.5))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color(hex: "475569").opacity(0.5), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium)
+                            .stroke(BrainGameColors.border.opacity(0.5), lineWidth: ComponentTokens.borderThin)
                     )
             )
         }
-        .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color(hex: "1e293b").opacity(0.6))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color(hex: "475569").opacity(0.5), lineWidth: 1)
-                )
-        )
+        .padding(Spacing.ml)
+        .panelBackground()
     }
 }
 
@@ -212,16 +262,15 @@ struct SphereModeButton: View {
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 4) {
+            HStack(spacing: Spacing.xxs) {
                 Image(systemName: difficulty.icon)
-                    .font(.caption)
+                    .font(.system(size: LayoutMetrics.iconSmall))
                 Text(difficulty.displayName)
-                    .font(.subheadline)
-                    .fontWeight(.bold)
+                    .font(BrainGameTypography.subheadline.weight(.bold))
             }
-            .foregroundColor(isSelected ? .white : .gray)
+            .foregroundColor(isSelected ? BrainGameColors.textPrimary : BrainGameColors.textTertiary)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 10)
+            .frame(minHeight: TouchTarget.minimum)
             .background(
                 Group {
                     if isSelected {
@@ -235,7 +284,7 @@ struct SphereModeButton: View {
                     }
                 }
             )
-            .clipShape(RoundedRectangle(cornerRadius: 6))
+            .clipShape(RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium - 2))
         }
         .disabled(isDisabled)
         .opacity(isDisabled ? 0.5 : 1)
@@ -255,67 +304,63 @@ struct FailModalOverlay: View {
                 .ignoresSafeArea()
                 .onTapGesture { }  // Block taps
 
-            VStack(spacing: 16) {
+            VStack(spacing: Spacing.md) {
                 // Icon
                 ZStack {
                     Circle()
-                        .fill(Color.red.opacity(0.2))
-                        .frame(width: 48, height: 48)
+                        .fill(BrainGameColors.error.opacity(0.2))
+                        .frame(width: LayoutMetrics.modalIconSize, height: LayoutMetrics.modalIconSize)
 
                     Image(systemName: "exclamationmark.triangle")
-                        .font(.system(size: 24))
-                        .foregroundColor(.red)
+                        .font(.system(size: LayoutMetrics.headerIcon))
+                        .foregroundColor(BrainGameColors.error)
                 }
 
                 Text("Pattern Mismatch")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .font(BrainGameTypography.title2)
+                    .foregroundColor(BrainGameColors.textPrimary)
 
                 Text("The rows are not perfectly aligned by color.")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .font(BrainGameTypography.subheadline)
+                    .foregroundColor(BrainGameColors.textTertiary)
                     .multilineTextAlignment(.center)
 
                 Text("Attempts remaining: \(attempts)")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .font(BrainGameTypography.subheadline.weight(.bold))
+                    .foregroundColor(BrainGameColors.textPrimary)
 
                 if attempts > 0 {
                     Button(action: onContinue) {
                         Text("Continue (Hide Colors)")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
+                            .font(BrainGameTypography.button)
+                            .foregroundColor(BrainGameColors.textPrimary)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                            .background(Color(hex: "475569"))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .frame(height: TouchTarget.large)
+                            .background(BrainGameColors.backgroundTertiary)
+                            .clipShape(RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium))
                     }
                 } else {
                     Button(action: onReset) {
                         Text("Game Over - Try Again")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
+                            .font(BrainGameTypography.button)
+                            .foregroundColor(BrainGameColors.textPrimary)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                            .background(Color.red)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .frame(height: TouchTarget.large)
+                            .background(BrainGameColors.error)
+                            .clipShape(RoundedRectangle(cornerRadius: ComponentTokens.radiusMedium))
                     }
                 }
             }
-            .padding(24)
+            .padding(Spacing.lg)
             .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color(hex: "0f172a"))
+                RoundedRectangle(cornerRadius: ComponentTokens.radius2XL)
+                    .fill(BrainGameColors.backgroundPrimary)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.red.opacity(0.5), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: ComponentTokens.radius2XL)
+                            .stroke(BrainGameColors.error.opacity(0.5), lineWidth: ComponentTokens.borderThin)
                     )
             )
-            .padding(32)
+            .padding(Spacing.xl)
         }
     }
 }

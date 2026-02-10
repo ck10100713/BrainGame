@@ -15,6 +15,7 @@ class SphereViewModel: ObservableObject {
     @Published var attempts: Int = SphereConstants.maxAttempts
     @Published var showFailModal: Bool = false
     @Published var isRevealing: Bool = false
+    @Published var isMemorizing: Bool = false  // Blind mode: show puzzle before hiding
 
     // MARK: - Private
 
@@ -33,20 +34,37 @@ class SphereViewModel: ObservableObject {
 
         if startPlaying {
             grid = SphereLogic.scrambleGrid()
-            isPlaying = true
             isSolved = false
             moves = 0
             elapsedTime = 0
             attempts = SphereConstants.maxAttempts
             showFailModal = false
             isRevealing = false
-            startTimer()
+
+            if difficulty == .blind {
+                // Blind mode: show puzzle first for memorization
+                isMemorizing = true
+                isPlaying = false  // Not playing yet, just memorizing
+            } else {
+                // Standard mode: start immediately
+                isPlaying = true
+                isMemorizing = false
+                startTimer()
+            }
         } else {
             grid = SphereLogic.createSolvedGrid()
             isPlaying = false
             isSolved = false
+            isMemorizing = false
             stopTimer()
         }
+    }
+
+    /// Blind mode: start playing after memorization phase
+    func startBlindPhase() {
+        isMemorizing = false
+        isPlaying = true
+        startTimer()
     }
 
     func handleDifficultyChange(_ newDifficulty: SphereDifficulty) {

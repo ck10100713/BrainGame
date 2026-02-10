@@ -1,36 +1,34 @@
 import SwiftUI
 
-struct SpinMatrixInfoPanel: View {
-    @ObservedObject var viewModel: SpinMatrixViewModel
+struct FlipTileInfoPanel: View {
+    @ObservedObject var viewModel: FlipTileViewModel
 
     var body: some View {
         VStack(spacing: Spacing.ml) {
             // Stats
             HStack(spacing: Spacing.md) {
                 StatCard(icon: "clock", title: "TIME", value: viewModel.formattedTime)
-                StatCard(icon: "arrow.up.and.down.and.arrow.left.and.right", title: "MOVES", value: "\(viewModel.moves)")
+                StatCard(icon: "hand.tap", title: "MOVES", value: "\(viewModel.moves)")
             }
 
-            // Target Preview - Improved size 160pt
+            // Target Preview
             VStack(spacing: Spacing.xs) {
                 HStack {
                     Text("TARGET PATTERN")
                         .font(BrainGameTypography.captionBold)
-                        .foregroundColor(BrainGameColors.accentSpinMatrix)
+                        .foregroundColor(BrainGameColors.accentFlipTile)
                         .tracking(1.5)
 
                     Spacer()
 
                     Image(systemName: "trophy.fill")
                         .font(.system(size: LayoutMetrics.iconSmall))
-                        .foregroundColor(BrainGameColors.accentSpinMatrix)
+                        .foregroundColor(BrainGameColors.accentFlipTile)
                 }
 
-                SpinMatrixBoardView(
-                    grid: viewModel.target,
-                    isInteractive: false,
-                    showRotators: false,
-                    onRotate: { _, _ in }
+                FlipTileBoardView(
+                    grid: viewModel.targetGrid,
+                    isInteractive: false
                 )
                 .frame(width: LayoutMetrics.targetPreviewStandard, height: LayoutMetrics.targetPreviewStandard)
                 .opacity(0.9)
@@ -40,8 +38,8 @@ struct SpinMatrixInfoPanel: View {
 
             // Difficulty Selector
             HStack(spacing: Spacing.xs) {
-                ForEach(SpinMatrixDifficulty.allCases, id: \.rawValue) { diff in
-                    SpinMatrixDifficultyButton(
+                ForEach(FlipDifficulty.allCases, id: \.rawValue) { diff in
+                    FlipDifficultyButton(
                         difficulty: diff,
                         isSelected: viewModel.difficulty == diff,
                         isDisabled: viewModel.isPlaying
@@ -78,8 +76,10 @@ struct SpinMatrixInfoPanel: View {
     }
 }
 
-struct SpinMatrixDifficultyButton: View {
-    let difficulty: SpinMatrixDifficulty
+// MARK: - Difficulty Button
+
+struct FlipDifficultyButton: View {
+    let difficulty: FlipDifficulty
     let isSelected: Bool
     let isDisabled: Bool
     let action: () -> Void
@@ -95,9 +95,7 @@ struct SpinMatrixDifficultyButton: View {
                     Group {
                         if isSelected {
                             LinearGradient(
-                                colors: difficulty == .easy
-                                    ? [BrainGameColors.accentSpinMatrix, Color(hex: "388BFD")]
-                                    : [BrainGameColors.accentHex, Color(hex: "8957E5")],
+                                colors: BrainGameColors.gradientColors(for: .flipTile),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
@@ -114,7 +112,7 @@ struct SpinMatrixDifficultyButton: View {
 }
 
 #Preview {
-    SpinMatrixInfoPanel(viewModel: SpinMatrixViewModel())
+    FlipTileInfoPanel(viewModel: FlipTileViewModel())
         .padding()
         .background(BrainGameColors.backgroundPrimary)
 }

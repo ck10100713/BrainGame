@@ -43,13 +43,13 @@ struct HexBoardView: View {
                 context.stroke(
                     path,
                     with: .color(.black.opacity(0.3)),
-                    lineWidth: 1
+                    lineWidth: ComponentTokens.borderThin
                 )
             }
         }
         .frame(width: viewSize * scale, height: viewSize * scale)
         .overlay {
-            // Rotator buttons overlay
+            // Rotator buttons overlay - 44pt minimum touch target
             if showRotators {
                 GeometryReader { geo in
                     let geometry = HexGeometry.shared
@@ -101,51 +101,44 @@ struct HexBoardView: View {
     }
 }
 
-// MARK: - Rotator Hit Area
+// MARK: - Rotator Hit Area - 44pt minimum touch target
 
 struct RotatorHitArea: View {
     let isInteractive: Bool
     let action: () -> Void
 
-    @State private var isHovered = false
-    @State private var isPressed = false
-
     var body: some View {
         Button(action: action) {
-            ZStack {
-                // Invisible hit area
-                Circle()
-                    .fill(Color.clear)
-                    .frame(width: 30, height: 30)
-
-                // Visible indicator on hover/press
-                if isHovered || isPressed {
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 16, height: 16)
-                        .shadow(color: .white.opacity(0.5), radius: 4)
-                        .overlay {
-                            Image(systemName: "arrow.clockwise")
-                                .font(.system(size: 8, weight: .bold))
-                                .foregroundColor(Color(hex: "0f172a"))
-                        }
-                        .scaleEffect(isPressed ? 0.9 : 1.0)
-                }
-            }
+            Circle()
+                .fill(Color.white.opacity(0.01)) // Nearly transparent but tappable
+                .frame(width: LayoutMetrics.hexRotatorSize, height: LayoutMetrics.hexRotatorSize)
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(RotatorButtonStyle())
         .disabled(!isInteractive)
         .opacity(isInteractive ? 1 : 0)
-        .onHover { hovering in
-            withAnimation(.easeInOut(duration: 0.15)) {
-                isHovered = hovering
+    }
+}
+
+// MARK: - Rotator Button Style
+
+struct RotatorButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .overlay {
+                if configuration.isPressed {
+                    Circle()
+                        .fill(BrainGameColors.textPrimary)
+                        .frame(width: Spacing.md, height: Spacing.md)
+                        .shadow(color: BrainGameColors.textPrimary.opacity(0.5), radius: 4)
+                        .overlay {
+                            Image(systemName: "arrow.clockwise")
+                                .font(.system(size: Spacing.xs, weight: .bold))
+                                .foregroundColor(BrainGameColors.backgroundPrimary)
+                        }
+                }
             }
-        }
-        .onLongPressGesture(minimumDuration: 0, pressing: { pressing in
-            withAnimation(.easeInOut(duration: 0.1)) {
-                isPressed = pressing
-            }
-        }, perform: {})
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
     }
 }
 
@@ -156,11 +149,11 @@ struct RotatorHitArea: View {
         scale: 1.3,
         onRotate: { _ in }
     )
-    .padding(40)
+    .padding(Spacing.xxl)
     .background(
-        RoundedRectangle(cornerRadius: 20)
-            .fill(Color(hex: "0f172a").opacity(0.4))
+        RoundedRectangle(cornerRadius: ComponentTokens.radius2XL)
+            .fill(BrainGameColors.backgroundPrimary.opacity(0.4))
     )
     .padding()
-    .background(Color(hex: "0f172a"))
+    .background(BrainGameColors.backgroundPrimary)
 }

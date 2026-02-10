@@ -5,52 +5,40 @@ struct MainMenuView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 32) {
+            VStack(spacing: Spacing.xl) {
                 // Hero Header
-                VStack(spacing: 8) {
-                    HStack(spacing: 12) {
+                VStack(spacing: Spacing.xs) {
+                    HStack(spacing: Spacing.sm) {
                         Image(systemName: "brain.head.profile")
-                            .font(.system(size: 40))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.cyan, .purple],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
+                            .font(.system(size: LayoutMetrics.iconHero))
+                            .foregroundStyle(BrainGameColors.heroGradient)
 
                         Text("BRAIN GAME")
-                            .font(.system(size: 36, weight: .bold, design: .rounded))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.cyan, .purple],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
+                            .font(BrainGameTypography.title1)
+                            .foregroundStyle(BrainGameColors.heroGradient)
                     }
 
                     Text("Spatial Logic Challenges")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .font(BrainGameTypography.subheadline)
+                        .foregroundColor(BrainGameColors.textTertiary)
                 }
-                .padding(.top, 40)
+                .padding(.top, Spacing.xxl)
 
                 // Game Cards
-                LazyVGrid(columns: [GridItem(.flexible())], spacing: 16) {
+                LazyVGrid(columns: [GridItem(.flexible())], spacing: Spacing.md) {
                     ForEach(GameId.allCases) { gameId in
                         GameCard(gameId: gameId) {
                             navigationStore.navigateToGame(gameId)
                         }
                     }
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, Spacing.ml)
 
                 // Footer
                 Text("Select a puzzle to begin")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 40)
+                    .font(BrainGameTypography.caption)
+                    .foregroundColor(BrainGameColors.textTertiary)
+                    .padding(.bottom, Spacing.xxl)
             }
         }
     }
@@ -63,24 +51,24 @@ struct GameCard: View {
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 16) {
+            HStack(spacing: Spacing.md) {
                 // Icon
                 ZStack {
-                    RoundedRectangle(cornerRadius: 12)
+                    RoundedRectangle(cornerRadius: ComponentTokens.radiusLarge)
                         .fill(
                             LinearGradient(
-                                colors: gameId.gradientColors.map { $0.opacity(0.3) },
+                                colors: BrainGameColors.gradientColors(for: gameId).map { $0.opacity(0.3) },
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
                         )
-                        .frame(width: 60, height: 60)
+                        .frame(width: LayoutMetrics.gameCardIconSize, height: LayoutMetrics.gameCardIconSize)
 
                     Image(systemName: gameId.icon)
-                        .font(.system(size: 28))
+                        .font(.system(size: LayoutMetrics.gameCardIconSymbol))
                         .foregroundStyle(
                             LinearGradient(
-                                colors: gameId.gradientColors,
+                                colors: BrainGameColors.gradientColors(for: gameId),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
@@ -88,15 +76,14 @@ struct GameCard: View {
                 }
 
                 // Text
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: Spacing.xxs) {
                     Text(gameId.displayName)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .font(BrainGameTypography.title2)
+                        .foregroundColor(BrainGameColors.textPrimary)
 
                     Text(gameId.subtitle)
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                        .font(BrainGameTypography.caption)
+                        .foregroundColor(BrainGameColors.textTertiary)
                         .lineLimit(2)
                 }
 
@@ -104,26 +91,27 @@ struct GameCard: View {
 
                 // Arrow
                 Image(systemName: "chevron.right")
-                    .font(.headline)
-                    .foregroundColor(.gray)
+                    .font(BrainGameTypography.headline)
+                    .foregroundColor(BrainGameColors.textTertiary)
             }
-            .padding(16)
+            .padding(Spacing.md)
+            .frame(minHeight: LayoutMetrics.gameCardMinHeight)
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color(hex: "1e293b").opacity(0.8))
+                RoundedRectangle(cornerRadius: ComponentTokens.radiusXL)
+                    .fill(BrainGameColors.backgroundSecondary.opacity(0.8))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: ComponentTokens.radiusXL)
                             .stroke(
                                 LinearGradient(
-                                    colors: gameId.gradientColors.map { $0.opacity(0.3) },
+                                    colors: BrainGameColors.gradientColors(for: gameId).map { $0.opacity(0.3) },
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 ),
-                                lineWidth: 1
+                                lineWidth: ComponentTokens.borderThin
                             )
                     )
             )
-            .shadow(color: gameId.gradientColors[0].opacity(0.2), radius: 8, x: 0, y: 4)
+            .gameAccentShadow(BrainGameColors.accentColor(for: gameId), radius: 8)
             .scaleEffect(isPressed ? 0.98 : 1.0)
         }
         .buttonStyle(PlainButtonStyle())

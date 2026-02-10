@@ -8,30 +8,29 @@ struct StatCard: View {
     let value: String
 
     var body: some View {
-        VStack(spacing: 8) {
-            HStack(spacing: 4) {
+        VStack(spacing: Spacing.xs) {
+            HStack(spacing: Spacing.xxs) {
                 Image(systemName: icon)
-                    .font(.caption)
+                    .font(.system(size: LayoutMetrics.iconSmall))
                 Text(title)
-                    .font(.caption)
-                    .fontWeight(.semibold)
+                    .font(BrainGameTypography.captionBold)
                     .tracking(1)
             }
-            .foregroundColor(.gray)
+            .foregroundColor(BrainGameColors.textTertiary)
 
             Text(value)
-                .font(.system(size: 28, weight: .bold, design: .rounded))
-                .foregroundColor(.white)
+                .font(BrainGameTypography.statValue)
+                .foregroundColor(BrainGameColors.textPrimary)
                 .monospacedDigit()
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 16)
+        .padding(.vertical, Spacing.md)
         .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(hex: "0f172a").opacity(0.8))
+            RoundedRectangle(cornerRadius: ComponentTokens.radiusLarge)
+                .fill(BrainGameColors.backgroundPrimary.opacity(0.8))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color(hex: "475569"), lineWidth: 1)
+                    RoundedRectangle(cornerRadius: ComponentTokens.radiusLarge)
+                        .stroke(BrainGameColors.border, lineWidth: ComponentTokens.borderThin)
                 )
         )
     }
@@ -47,16 +46,15 @@ struct ActionButton: View {
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 8) {
+            HStack(spacing: Spacing.xs) {
                 Image(systemName: icon)
-                    .font(.headline)
+                    .font(BrainGameTypography.headline)
                 Text(title)
-                    .font(.headline)
-                    .fontWeight(.bold)
+                    .font(BrainGameTypography.button)
             }
-            .foregroundColor(.white)
+            .foregroundColor(BrainGameColors.textPrimary)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 16)
+            .frame(height: TouchTarget.large)
             .background(
                 LinearGradient(
                     colors: gradient,
@@ -64,8 +62,8 @@ struct ActionButton: View {
                     endPoint: .trailing
                 )
             )
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: gradient[0].opacity(0.3), radius: 8, x: 0, y: 4)
+            .clipShape(RoundedRectangle(cornerRadius: ComponentTokens.radiusLarge))
+            .gameAccentShadow(gradient[0])
         }
         .buttonStyle(ScaleButtonStyle())
     }
@@ -76,7 +74,7 @@ struct ActionButton: View {
 struct ScaleButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .scaleEffect(configuration.isPressed ? 0.97 : 1)
             .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
     }
 }
@@ -84,28 +82,28 @@ struct ScaleButtonStyle: ButtonStyle {
 // MARK: - Previews
 
 #Preview("StatCard") {
-    HStack {
+    HStack(spacing: Spacing.md) {
         StatCard(icon: "clock", title: "TIME", value: "02:30")
         StatCard(icon: "arrow.up.and.down.and.arrow.left.and.right", title: "MOVES", value: "15")
     }
     .padding()
-    .background(Color(hex: "0f172a"))
+    .background(BrainGameColors.backgroundPrimary)
 }
 
 #Preview("ActionButton") {
-    VStack {
+    VStack(spacing: Spacing.md) {
         ActionButton(
             title: "START CHALLENGE",
             icon: "play.fill",
-            gradient: [.green, Color(hex: "059669")]
+            gradient: [BrainGameColors.accentSphere, Color(hex: "2EA043")]
         ) {}
 
         ActionButton(
             title: "RESET",
             icon: "arrow.counterclockwise",
-            gradient: [Color(hex: "475569"), Color(hex: "334155")]
+            gradient: [BrainGameColors.backgroundTertiary, BrainGameColors.backgroundSecondary]
         ) {}
     }
     .padding()
-    .background(Color(hex: "0f172a"))
+    .background(BrainGameColors.backgroundPrimary)
 }

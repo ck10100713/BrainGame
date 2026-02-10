@@ -6,6 +6,7 @@ enum GameId: String, CaseIterable, Identifiable {
     case spinMatrix = "SPIN_MATRIX"
     case sphereShift = "SPHERE_SHIFT"
     case hexLogic = "HEX_LOGIC"
+    case flipTile = "FLIP_TILE"
 
     var id: String { rawValue }
 
@@ -14,6 +15,7 @@ enum GameId: String, CaseIterable, Identifiable {
         case .spinMatrix: return "SpinMatrix"
         case .sphereShift: return "SphereShift"
         case .hexLogic: return "HexLogic"
+        case .flipTile: return "FlipTile"
         }
     }
 
@@ -22,6 +24,7 @@ enum GameId: String, CaseIterable, Identifiable {
         case .spinMatrix: return "Rotate 2x2 blocks to match the target pattern"
         case .sphereShift: return "Shift rows and columns to align sphere colors"
         case .hexLogic: return "Rotate triangular petals in a hexagonal puzzle"
+        case .flipTile: return "Flip tiles to match the target pattern"
         }
     }
 
@@ -30,6 +33,7 @@ enum GameId: String, CaseIterable, Identifiable {
         case .spinMatrix: return "arrow.clockwise.circle.fill"
         case .sphereShift: return "circle.grid.3x3.fill"
         case .hexLogic: return "hexagon.fill"
+        case .flipTile: return "square.grid.3x3.fill"
         }
     }
 
@@ -38,6 +42,7 @@ enum GameId: String, CaseIterable, Identifiable {
         case .spinMatrix: return [.cyan, .blue]
         case .sphereShift: return [.cyan, .teal]
         case .hexLogic: return [.purple, .pink]
+        case .flipTile: return [.orange, .red]
         }
     }
 }

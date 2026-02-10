@@ -8,10 +8,10 @@ enum BlockColor: String, CaseIterable {
 
     var color: Color {
         switch self {
-        case .red: return .red
-        case .blue: return .blue
-        case .green: return .green
-        case .yellow: return .yellow
+        case .red: return BrainGameColors.blockRed
+        case .blue: return BrainGameColors.blockBlue
+        case .green: return BrainGameColors.blockGreen
+        case .yellow: return BrainGameColors.blockYellow
         }
     }
 }
